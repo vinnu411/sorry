@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css" >
+    <title>Document</title>
+</head>
+<body>
+    <section>
+      <p class="text">
+       My love, I’m so deeply sorry for the pain I’ve caused you.It’s been weighing heavily on me, and I can’t stand the thought of hurting someone.who means the world to me. You’re my everything,
+       I hate that I’ve let you down. Please know that I’m willing to do whatever  it takes to make things right because losing you is something I can’t bear.
+  I love you more than words can express, and I hope we can find our way back to each other ,
+      </p>
+    </section>
+    <script src="anime.min.js"></script>
+    <script>
+         const text = document.querySelector('.text');
+        const characters = text.textContent.split(''); // Split into characters
+
+        // Map characters to spans, replacing spaces with &nbsp;
+        text.innerHTML = characters.map(char => 
+            char === ' ' ? `<span>&nbsp;</span>` : `<span>${char}</span>`
+        ).join('');
+
+        const animation = anime.timeline({
+          targets : '.text span',
+          easing : 'easeInOutExpo',
+          loop : true  
+        })
+        animation.add({
+            rotate : function(){
+                return anime.random(-360,360)
+            },
+            translateX : function(){
+                return anime.random(-500,500)
+            },
+            translateY : function(){
+                return anime.random(-500,500)
+            },
+            duration : 5000,
+            delay : anime.stagger(50)
+        })
+        .add({
+            rotate :0,
+            translateX :0,
+            translateY :0,
+            duration : 5000,
+            delay : anime.stagger(20),
+
+
+        })
+        
+    </script>
+</body>
+</html>
